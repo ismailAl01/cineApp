@@ -1,8 +1,10 @@
 # Welcome to cineApp
 
+![Alt text](/assets/example_screenshot.png?raw=true "Titanic sample screenshot")
+
 ## Launch API
 
-### Getting Started: Insall node modules
+### Getting Started: Install node modules
 
 ```
 cd api/
@@ -13,23 +15,23 @@ yarn install
 On the same directory (/api)
 
 ```
-cp .env/example .env
+cp .env.example .env
 ```
 and fill `TMDB_API_KEY` with the API KEY you sent to me for the test
 
 
 ### Start server
-```yarn dev
+```
+yarn dev
 ```
 
 ### Technical choices:
 
-I created an API that exposes the IMDB API. The API communicates with the web application with graphQL.
+I created an API that exposes the TMDb API. The API communicates with the web application with graphQL.
 
 `graphql` gives the power to define the data to retrieve from a server, combined with `type-graphql` it allows to create a type-safe chain. The latter allows to create schemas, types and resolvers only with TypeScript, using classes and decorators.
-Pour la simplicité du test on va se focaliser que sur le mode developpement coté front et back.
 
-I used `nodemon`* to run the server in dev mode, which will allow rapid development by taking into account changes to the code without the need to restart the server.
+I used `nodemon`* to run the server in dev mode, which will allow rapid development by taking into account changes of the code without need to restart the server.
 
 ### Folder structure
 The code is structured in the form of modules, to guarantee independence between the different sections:
@@ -42,32 +44,35 @@ The code is structured in the form of modules, to guarantee independence between
 
 ## Launch Portal
 
-### Getting Started: Insall node modules
+### Getting Started: Install node modules
 
+Open another terminal and run these commands from the project root:
 ```
 cd web/
 yarn install
 ```
+### Start the poral
+```
+yarn dev
+```
+and open on your browser: http://localhost:3000
 
 ### Note about env variables
 For the simplicity of the test, and since it does not represent any security risk, I chose to put the `.env` file on the repo and not add it to the `.gitignore` file. This way, access to the information needed to launch the web application will be easy.
 
-### Start the poral
-```yarn dev
-```
 
 ### Technical choices:
-The web application is developed in `NextJS`, it handles the tooling and configuration needed for React, and provides routing and additional structure, features, and optimizations for the application. and which subsequently allows to focus on the application domain.
+The web application is developed with `NextJS`, it handles the tooling and configuration needed for React, and provides routing and additional structure, features, and optimizations for the application. and which subsequently allows to focus on the application domain.
 
 The communication with the API is done using the Apollo client: `@apollo/client`. and it can be used to manage state, cache, and modify application data, all while automatically updating your UI.
 
 `code-gen`: A library that ensures full typing between API and web application. Based on a simple `codegen.yml` configuration file, the library imports the schemas (based on resolvers) of our API and allows to generate the necessary hooks.
 
-### How to use code gen library:
+### How to use code-gen library:
 - On `/api`: Add a new resolver (called series.ts for example) to the API with the appropriate queries
 - On `/web`: Add your the new query under `web/src/graphql/queries`
-- On `/web`: Run `yarn gen` and check `/web/src/generated.graphql` the results
-- Now you can import your new hook from `@/generated/graphql` and use it to fetch data from the API.
+- On `/web`: Run `yarn gen` and check the generated queries under `/web/src/generated.graphql`
+- Now you can import your new hook from `@/generated/graphql` and use it to fetch data from the API
 - Bonus: Once the data is fetched using the generated hook, you will see that the result is strongly typed and it allows direct access to the different fields exposed by the query
 
 
@@ -84,6 +89,6 @@ The code is structured in the form of modules, to guarantee independence between
 - `src/graphql`: Contains the list of queries/mutations/fragments linked to our graphql API
 - `src/shared`: Contains dumb components that can be reused by pages
 
-
-*: For the simplicity of the test we will focus only on the development mode on the front and back side.
-**: For the simplicity of the test, I focused only on the movies section with its search and detail.
+### Notes
+- *: For the simplicity of the test we will focus only on the development mode on the front and back side.
+- **: For the simplicity of the test, I focused only on the movies section with its search and detail.
