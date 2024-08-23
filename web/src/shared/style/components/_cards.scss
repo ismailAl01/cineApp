@@ -1,0 +1,229 @@
+.movie__card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //transition: all 0.4s ease-in-out;
+  border-radius: 16px;
+  background-color: transparent;
+  border: 1px solid transparent;
+
+  &--image {
+    border-radius: 12px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 9 / 12;
+
+    img {
+      border-radius: 12px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      //transition: transform 0.5s ease-in-out;
+    }
+  }
+
+  &--details {
+    text-align: center;
+    padding: 8px 8px 8px;
+  }
+
+  &--title {
+    font-size: clamp(14px, 3vw, 16px);
+    color: $c-second;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
+
+  &--original-title {
+    font-size: clamp(14px, 3vw, 16px);
+    color: $c-gray;
+  }
+
+  .--date {
+    font-size: clamp(12px, 3vw, 14px);
+    font-weight: 400;
+    color: $c-gray;
+  }
+
+  &:hover {
+    background-color: $c-light;
+    border: 1px solid $c-main;
+    padding: 8px;
+
+    img {
+      transform: scale(1.08);
+    }
+  }
+}
+
+.movies__area {
+  padding: 64px 0;
+  position: relative;
+  &--wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    gap: 40px;
+    width: 100%;
+    margin: auto;
+  }
+
+  &.popular {
+    position: relative;
+    &::after {
+      background-color: $c-main;
+      width: 90%;
+      margin: auto;
+      border-radius: 24px;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      @media (width<= 1399px) {
+        width: 96%;
+      }
+      @media (width<= 991px) {
+        width: 98%;
+      }
+    }
+  }
+}
+
+.search__card {
+  cursor: pointer;
+
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  gap: 32px;
+  align-items: center;
+
+  @media (width<= 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding-bottom: 40px;
+    border-bottom: 1px solid lighten($c-gray, 30%);
+  }
+
+  &--image {
+    border-radius: 12px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 24px 0;
+    @media (width<= 767px) {
+      aspect-ratio: initial;
+    }
+
+    img {
+      border-radius: 12px;
+      width: 100%;
+      height: fit-content;
+      object-fit: cover;
+      object-position: center;
+
+      @media (width<= 767px) {
+        width: 300px;
+        height: fit-content;
+        margin: auto;
+        border-radius: 12px;
+      }
+    }
+  }
+
+  &--details {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+    background-color: lighten($c-light, 2%);
+    border-radius: 16px;
+  }
+
+  &--title {
+    font-size: clamp(18px, 3vw, 32px);
+    line-height: clamp(32px, 3vw, 48px);
+    color: $c-second;
+    font-weight: 700;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &--list {
+    padding-left: 16px;
+    list-style: square;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .item {
+      font-style: italic;
+      .key {
+        color: $c-gray;
+        margin-right: 8px;
+      }
+
+      .value {
+        color: $c-second;
+        font-size: clamp(14px, 3vw, 16px);
+        font-weight: 500;
+      }
+    }
+  }
+
+  &--counts {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    .item {
+      background-color: $c-white;
+      border-radius: 8px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 100px;
+      border: 2px solid $c-main;
+      svg {
+        fill: $c-main;
+      }
+
+      span {
+        font-size: clamp(12px, 3vw, 14px);
+        font-weight: 500;
+      }
+
+      strong {
+        font-size: clamp(14px, 3vw, 18px);
+        font-weight: 800;
+      }
+    }
+  }
+
+  &--description {
+    font-size: clamp(14px, 3vw, 16px);
+    line-height: clamp(24px, 3vw, 32px);
+    font-weight: 500;
+  }
+}

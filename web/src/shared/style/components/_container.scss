@@ -1,0 +1,70 @@
+.container--float,
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1399px) {
+  .container,
+  .container--float {
+    max-width: 100%;
+    padding: 0 64px;
+  }
+}
+
+@media (max-width: 1299px) {
+  .container,
+  .container--float {
+    max-width: 1140px;
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .container,
+  .container--float {
+    max-width: 100%;
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 991px) {
+  .container,
+  .container--float {
+    max-width: 100%;
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container,
+  .container--float {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .container,
+  .container--float {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+}
+
+// .main__layout {
+//   background-color: rgba($c-white, 1);
+//   border: 16px solid $c-main;
+//   // margin: 16px;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   margin: auto;
+//   width: 100%;
+//   overflow-y: auto;
+//   @media (width<= 991px) {
+//     border: 8px solid $c-white;
+//   }
+// }

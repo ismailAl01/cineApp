@@ -1,0 +1,16 @@
+fragment RegularMovie on Movie {
+    id
+    title
+    original_title
+    poster_path
+    adult
+    overview
+    release_date
+    genre_ids
+    original_language
+    backdrop_path
+    popularity
+    vote_count
+    video
+    vote_average
+}

@@ -1,0 +1,23 @@
+.footer__area {
+  margin: 0 auto;
+  padding: 24px 0;
+
+  @media (max-height: 767px) {
+    position: relative;
+  }
+
+  .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+
+    p {
+      text-align: center;
+      color: $c-text;
+    }
+  }
+
+
+}

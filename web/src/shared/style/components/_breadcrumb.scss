@@ -1,0 +1,51 @@
+.breadcrumb__area {
+  height: fit-content;
+  margin-top: 16px;
+  background-size: 100%;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 360px;
+  padding: 32px 32px 48px;
+
+  background-size: cover;
+  background-position: center;
+  border-radius: 24px;
+
+  @media (width<= 991px) {
+    padding: 32px 16px;
+  }
+
+  &--content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    gap: 16px;
+    span {
+      font-size: clamp(16px, 3vw, 24px);
+      font-weight: 500;
+      line-height: clamp(24px, 3vw, 32px);
+      color: $c-light;
+    }
+    h1,
+    h2 {
+      font-size: clamp(16px, 4vw, 48px);
+      font-weight: 700;
+      line-height: clamp(24px, 4vw, 72px);
+      color: $c-white;
+      margin-bottom: 0;
+      text-align: center;
+    }
+  }
+}
+
+.breadcrumb--large {
+  aspect-ratio: 16 / 9 !important;
+  @media (width<= 991px) {
+    aspect-ratio: 16 / 16 !important;
+  }
+}

@@ -1,0 +1,25 @@
+.heading__area {
+  text-align: left;
+  margin-bottom: 16px;
+  width: 100%;
+  @media (max-width: 991px) {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: clamp(24px, 4vw, 32px);
+    line-height: clamp(32px, 4vw, 40px);
+    font-weight: 600;
+    color: $c-second;
+    margin-bottom: 8px;
+  }
+  p {
+    font-size: clamp(14px, 4vw, 16px);
+    line-height: clamp(24px, 4vw, 32px);
+    width: 70%;
+    color: $c-gray;
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+  }
+}
